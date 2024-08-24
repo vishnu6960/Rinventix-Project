@@ -1,0 +1,88 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-ChatApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Login</h2>
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+                <p class="text-center mt-3">Don't have an account? <a href="signup.html">Sign Up here</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="login.js"></script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="row shadow rounded">
+            <div class="col-md-6 p-5">
+                <h2 class="fw-bold">Welcome back! <span class="wave">👋</span></h2>
+                <p class="text-muted">Enter your Details to access your account.</p>
+                <div class="mb-3 d-flex justify-content-between gap-3">
+                    <button class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-google"></i> Sign up with Google
+                    </button>
+                    <button class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-apple"></i> Sign up with Apple ID
+                    </button>
+                </div>
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="alex@gmail.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="xxxx">
+                    </div>
+                    <div class="mb-3">
+                        <a href="#" class="text-decoration-none">Forgot Password? <span class="text-primary">Click here to Retrieve.</span></a>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Sign in</button>
+                </form>
+            </div>
+            <div class="col-md-6 bg-success d-flex flex-column-reverse text-white text-center" >
+                <p class="fs-4 fw-bold border border-2 border-magenta p-3">The Simplest way to manage your clients & work.</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
+
