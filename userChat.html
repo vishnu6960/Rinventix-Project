@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout with Image Upload</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="userChat.css">
+    <!-- Custom CSS -->
+    
+</head>
+
+<body>
+    <!-- Sidebar Toggle Button -->
+    <button class="btn btn-primary d-md-none" id="sidebarToggle">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header p-3 border-bottom">
+            <h6>Menu</h6>
+            <button class="btn btn-secondary d-md-none" id="sidebarClose">
+                <i class="bi bi-x"></i>
+            </button>
+        </div>
+        <div class="sidebar-content p-3">
+            <h6>Previous 5 Days</h6>
+            <div class="menu-item dropdown">
+                <span>Emma and Hans argue over a patient’s file.</span>
+                <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Share</a></li>
+                    <li><a class="dropdown-item" href="#">Rename</a></li>
+                    <li><a class="dropdown-item" href="#">Archive</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                </ul>
+            </div>
+            <!-- More items... -->
+            <h6 class="mt-4">Previous 30 Days</h6>
+            <!-- More items... -->
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="main-content">
+        
+        <div class="twitter-post">
+            <div class="profile-section mt-5">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.HxV79tFMPfBAIo0BBF-sOgHaEy&pid=Api&P=0&h=180" alt="Profile Picture" class="profile-img">
+            </div>
+            <div class="content-section">
+                <!-- <div> -->
+                    <p style="background-color: #f0f0f0; border-radius: 8px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, maiores?</p>
+                <!-- </div> -->
+                <div class="tweet-media">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.HxV79tFMPfBAIo0BBF-sOgHaEy&pid=Api&P=0&h=180" alt="Tweet Image" class="tweet-img">
+                </div>
+                <div class="tweet-content">
+                    <p>This is an example tweet text. It mimics the look of a Twitter post, complete with profile image and content section.</p>
+                </div>
+                <div class="icons">
+                    <!-- <span class="icon">&#128266;</span> Sound icon -->
+                    <i class="bi bi-volume-up"></i>
+                    <i class="bi bi-copy"></i>
+                    <!-- <span class="icon">&#128203;</span> Copy icon -->
+                </div>
+            </div>
+        </div>
+        <div class="twitter-post">
+            <div class="profile-section mt-5" id="profile-section">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.HxV79tFMPfBAIo0BBF-sOgHaEy&pid=Api&P=0&h=180" alt="Profile Picture" class="profile-img">
+            </div>
+            <div class="content-section">
+                <p style="background-color: #f0f0f0; border-radius: 8px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, maiores?</p>
+                <div class="tweet-media">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.HxV79tFMPfBAIo0BBF-sOgHaEy&pid=Api&P=0&h=180" alt="Tweet Image" class="tweet-img">
+                </div>
+                <div class="tweet-content">
+                    <p>This is an example tweet text. It mimics the look of a Twitter post, complete with profile image and content section.</p>
+                </div>
+                <div class="icons">
+                    <!-- <span class="icon">&#128266;</span> Sound icon -->
+                    <i class="bi bi-volume-up"></i>
+                    <i class="bi bi-copy"></i>
+                    <!-- <span class="icon">&#128203;</span> Copy icon -->
+                </div>
+            </div>
+        </div>
+        <div class="twitter-post">
+            <div class="profile-section mt-5">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.HxV79tFMPfBAIo0BBF-sOgHaEy&pid=Api&P=0&h=180" alt="Profile Picture" class="profile-img">
+            </div>
+            <div class="content-section">
+                <p style="background-color: #f0f0f0; border-radius: 8px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, maiores?</p>
+
+                <div class="tweet-media">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.HxV79tFMPfBAIo0BBF-sOgHaEy&pid=Api&P=0&h=180" alt="Tweet Image" class="tweet-img">
+                </div>
+                <div class="tweet-content">
+                    <p>This is an example tweet text. It mimics the look of a Twitter post, complete with profile image and content section.</p>
+                </div>
+                <div class="icons">
+                    <!-- <span class="icon">&#128266;</span> Sound icon -->
+                    <i class="bi bi-volume-up"></i>
+                    <i class="bi bi-copy"></i>
+                    <!-- <span class="icon">&#128203;</span> Copy icon -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Preview -->
+    <div class="image-preview" id="imagePreview" style="display: none;">
+        <img id="previewImg" src="" alt="Image Preview">
+        <button class="btn-icon" id="removeImage"><i class="bi bi-x"></i></button>
+    </div>
+
+    <!-- Chat Box -->
+    <div class="chat-box">
+        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+        <button class="btn-icon" id="uploadBtn"><i class="bi bi-image"></i></button>
+        <input type="text" placeholder="Message">
+        <button class="btn-icon"><i class="bi bi-send"></i></button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="mainChat.js"></script>
+</body>
+
+</html>

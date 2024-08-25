@@ -1,75 +1,44 @@
-document.getElementById('chatForm').addEventListener('submit', function(e) {
-    e.preventDefault();
 
-    const message = document.getElementById('chatMessage').value;
-    const imageFile = document.getElementById('chatImage').files[0];
+        const uploadBtn = document.getElementById('uploadBtn');
+        const imageUpload = document.getElementById('imageUpload');
+        const imagePreview = document.getElementById('imagePreview');
+        const previewImg = document.getElementById('previewImg');
+        const removeImage = document.getElementById('removeImage');
 
-    if (message || imageFile) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('chat-message', 'my-message');
+        uploadBtn.addEventListener('click', () => {
+            imageUpload.click();
+        });
 
-        if (message) {
-            const messageText = document.createElement('p');
-            messageText.textContent = message;
-            messageElement.appendChild(messageText);
-        }
+        imageUpload.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    previewImg.src = e.target.result;
+                    imagePreview.style.display = 'flex';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
 
-        if (imageFile) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const imagePreview = document.createElement('img');
-                imagePreview.src = e.target.result;
-                imagePreview.classList.add('img-fluid', 'chat-image');
-                messageElement.appendChild(imagePreview);
-                document.querySelector('.chat-box').appendChild(messageElement);
-            };
-            reader.readAsDataURL(imageFile);
-        } else {
-            document.querySelector('.chat-box').appendChild(messageElement);
-        }
+        removeImage.addEventListener('click', () => {
+            imagePreview.style.display = 'none';
+            imageUpload.value = '';
+        });
 
-        // Clear form fields
-        document.getElementById('chatMessage').value = '';
-        document.getElementById('chatImage').value = '';
-        document.getElementById('imagePreview').innerHTML = '';
+        // Sidebar Toggle
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarClose = document.getElementById('sidebarClose');
 
-        // Scroll to the latest message
-        document.querySelector('.chat-box').scrollTop = document.querySelector('.chat-box').scrollHeight;
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+            document.querySelector('.main-content').classList.toggle('collapsed');
+            document.querySelector('.chat-box').classList.toggle('collapsed');
+        });
 
-        // If you have an API, you'd send the message/image here
-        // Example (pseudo-code):
-        /*
-        fetch('API_ENDPOINT', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${getCookie('token')}`, // If using JWT
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                message: message,
-                image: imageFile // This needs proper handling, e.g., using FormData
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Handle response
-        })
-        .catch(error => console.error('Error:', error));
-        */
-    }
-});
-
-document.getElementById('chatImage').addEventListener('change', function() {
-    const file = this.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('imagePreview').innerHTML = `
-                <img src="${e.target.result}" class="img-fluid" alt="Preview" />
-            `;
-        };
-        reader.readAsDataURL(file);
-    }
-});
-
-
+        sidebarClose.addEventListener('click', () => {
+            sidebar.classList.remove('show');
+            document.querySelector('.main-content').classList.remove('collapsed');
+            document.querySelector('.chat-box').classList.remove('collapsed');
+        });

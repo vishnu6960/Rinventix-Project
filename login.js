@@ -16,7 +16,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         if (data.token) {
             document.cookie = `token=${data.token}; path=/`;
             alert('Login successful!');
-            window.location.href = 'chat.html'; // Redirect to chat page
+            window.location.href = 'mainChat.html'; // Redirect to chat page
         } else {
             alert('Login failed: ' + data.message);
         }

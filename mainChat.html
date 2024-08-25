@@ -9,184 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="mainChat.css">
     <!-- Custom CSS -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .sidebar {
-            height: 100%;
-            width: 250px;
-            background-color: #fff;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow-y: auto;
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-
-        .sidebar.collapsed {
-            transform: translateX(-100%);
-        }
-
-        .sidebar .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-        }
-
-        .sidebar .menu-item i {
-            font-size: 1rem;
-            color: #555;
-        }
-
-        .main-content {
-            margin-left: 250px;
-            padding: 20px;
-            height: calc(100vh - 60px); /* Adjust for chat box height */
-            overflow-y: auto;
-            transition: margin-left 0.3s ease;
-        }
-
-        .main-content.collapsed {
-            margin-left: 0;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .cards {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .card {
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            flex: 1;
-            min-width: 150px;
-            max-width: 250px;
-            text-align: center;
-        }
-
-        .chat-box {
-            display: flex;
-            align-items: center;
-            position: fixed;
-            bottom: 0;
-            left: 250px;
-            right: 0;
-            padding: 10px;
-            background-color: #f1f1f1;
-            border-top: 1px solid #ddd;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: left 0.3s ease;
-        }
-
-        .chat-box input[type="text"] {
-            flex: 1;
-            border: none;
-            outline: none;
-            padding: 10px;
-            border-radius: 20px;
-            background-color: #fff;
-            margin-right: 10px;
-        }
-
-        .chat-box .btn-icon {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #007bff;
-            cursor: pointer;
-        }
-
-        .image-preview {
-            position: fixed;
-            bottom: 60px; /* Adjust to position just above the chat box */
-            left: 250px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            background-color: #fff;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1001;
-            transition: left 0.3s ease;
-        }
-
-        .image-preview img {
-            max-width: 100px;
-            max-height: 100px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-
-        .image-preview .btn-icon {
-            font-size: 1rem;
-            margin-left: 10px;
-            color: #dc3545;
-            cursor: pointer;
-        }
-
-        @media (max-width: 992px) {
-            .sidebar {
-                width: 200px;
-            }
-
-            .main-content {
-                margin-left: 200px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                position: absolute;
-                transform: translateX(-100%);
-                height: 100%;
-                z-index: 200;
-            }
-
-            .sidebar.show {
-                transform: translateX(0);
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-
-            .chat-box {
-                left: 0;
-            }
-
-            .image-preview {
-                left: 0;
-                right: 0;
-            }
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -206,7 +31,7 @@
         <div class="sidebar-content p-3">
             <h6>Previous 5 Days</h6>
             <div class="menu-item dropdown">
-                <span>Emma and Hans argue over a patient’s file.</span>
+                <span href="">Emma and Hans argue over a patient’s file.</span>
                 <i class="bi bi-three-dots" data-bs-toggle="dropdown" aria-expanded="false"></i>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Share</a></li>
@@ -262,51 +87,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const uploadBtn = document.getElementById('uploadBtn');
-        const imageUpload = document.getElementById('imageUpload');
-        const imagePreview = document.getElementById('imagePreview');
-        const previewImg = document.getElementById('previewImg');
-        const removeImage = document.getElementById('removeImage');
-
-        uploadBtn.addEventListener('click', () => {
-            imageUpload.click();
-        });
-
-        imageUpload.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    previewImg.src = e.target.result;
-                    imagePreview.style.display = 'flex';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        removeImage.addEventListener('click', () => {
-            imagePreview.style.display = 'none';
-            imageUpload.value = '';
-        });
-
-        // Sidebar Toggle
-        const sidebar = document.querySelector('.sidebar');
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebarClose = document.getElementById('sidebarClose');
-
-        sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('show');
-            document.querySelector('.main-content').classList.toggle('collapsed');
-            document.querySelector('.chat-box').classList.toggle('collapsed');
-        });
-
-        sidebarClose.addEventListener('click', () => {
-            sidebar.classList.remove('show');
-            document.querySelector('.main-content').classList.remove('collapsed');
-            document.querySelector('.chat-box').classList.remove('collapsed');
-        });
-    </script>
+    <script src="mainChat.js"></script>
 </body>
 
 </html>
